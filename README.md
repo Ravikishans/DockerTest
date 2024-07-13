@@ -8,8 +8,8 @@ Docker-compose file is created and kept in Question1 folder which will pull the 
 
 For making Wordpress running follow the command:
 ```shell
-git clone https://github.com/Sukhilnair/Exam.git
-cd Exam/Question1/
+git clone https://github.com/Ravikishans/DockerTest.git
+cd wordpress
 sudo docker-compose up -d
 ```
 ## Question 2
@@ -22,8 +22,8 @@ Link for the project: https://github.com/UnpredictablePrashant/StreamingApp
 To create Docker containers for both the frontend and backend of the streaming application, Dockerfile, Docker Compose, and a shell script have been prepared. To build and run the Docker containers for the frontend and backend, execute the following command.
 
 ```shell
-git clone https://github.com/Sukhilnair/Exam.git
-cd Exam/Question2/
+git clone https://github.com/Ravikishans/DockerTest.git
+cd streamingapp
 git clone https://github.com/UnpredictablePrashant/StreamingApp
 cp Dockerfile_frontend ./StreamingApp/frontend/Dockerfile
 cp start.sh ./StreamingApp/frontend
