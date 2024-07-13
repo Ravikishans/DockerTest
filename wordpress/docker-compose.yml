@@ -10,13 +10,13 @@ services:
 
     environment:
 
-      DB_NAME: dbwordpress
+      WORDPRESS_DB_NAME: dbwordpress
 
-      DB_USER: admin
+      WORDPRESS_DB_USER: admin
 
-      DB_PASSWORD: 1245667
+      WPRDPRESS_DB_PASSWORD: 1245667
 
-      DB_HOST: 127.0.0.1:3306
+      WORDPRESS_DB_HOST: 127.0.0.1:3306
 
     ports:
 
