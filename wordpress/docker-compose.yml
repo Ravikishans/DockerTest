@@ -1,56 +1,31 @@
-version: "3.8"
-
+version: '3'  
 services:
-
-  wordpress:
-
-    image: wordpress
-
-    container_name: containerwordpress
-
-    environment:
-
-      WORDPRESS_DB_NAME: dbwordpress
-
-      WORDPRESS_DB_USER: admin
-
-      WPRDPRESS_DB_PASSWORD: 1245667
-
-      WORDPRESS_DB_HOST: 127.0.0.1:3306
-
-    ports:
-
-      - "8088:80"
-
-    volumes:
-
-      - /var/www/html:/var/www/html
-
-  database:
-
+  db:
     image: mysql:latest
-
-    container_name: containerdatabase
-
-    environment:
-
-      MYSQL_DATABASE: dbwordpress
-
-      MYSQL_USER: exampleuser
-
-      MYSQL_PASSWORD: examplepass
-
-      MYSQL_ROOT_PASSWORD: '3425675'
-      
+    container_name: database
+    command: '--default-authentication-plugin=mysql_native_password'
     volumes:
-
       - ./db_data:/var/lib/mysql
-
-
-
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    ports:
+      - 8088:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
 
   
-
-
-
-
+    
