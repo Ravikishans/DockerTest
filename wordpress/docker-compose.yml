@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+
+  wordpress:
+
+    image: wordpress
+
+    container_name: containerwordpress
+
+    environment:
+
+      DB_NAME: dbwordpress
+
+      DB_USER: admin
+
+      DB_PASSWORD: 1245667
+
+      DB_HOST: 127.0.0.1:3306
+
+    ports:
+
+      - "8088:80"
+
+    volumes:
+
+      - /var/www/html:/var/www/html
+
+  database:
+
+    image: mysql:latest
+
+    container_name: containerdatabase
+
+    environment:
+
+      MYSQL_DATABASE: dbwordpress
+
+      MYSQL_USER: exampleuser
+
+      MYSQL_PASSWORD: examplepass
+
+      MYSQL_ROOT_PASSWORD: '3425675'
+      
+    volumes:
+
+      - ./db_data:/var/lib/mysql
+
+
+
+
+  
+
+
+
+
